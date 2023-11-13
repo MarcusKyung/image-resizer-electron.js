@@ -10,7 +10,7 @@ function loadImage(e) {
   const file = e.target.files[0];
 
   if(!isFileImage(file)) {
-    alertError("message: File is not an image.")
+    alertError("message: file is not an image.")
     return;
   }
 
@@ -36,12 +36,12 @@ function sendImage(e) {
   const height= heightInput.value;
   
   if (!img.files[0]) {
-    alertError("Please upload an image");
+    alertError("message: please upload an image");
     return;
   }
 
   if (width === '' || height === '') {
-    alertError("Please enter a valid width and height");
+    alertError("message: please enter a valid width and height");
     return;
   }
 
@@ -54,7 +54,7 @@ function sendImage(e) {
 
 // Catch the image:done event 
 ipcRenderer.on('image:done', () => {
-  alertSuccess(`Image resized to ${widthInput.value} x ${heightInput.value}`);
+  alertSuccess(`message: image resized to ${widthInput.value} x ${heightInput.value}`);
 })
 
 function isFileImage(file) {
@@ -90,4 +90,3 @@ function alertSuccess(message) {
 
 img.addEventListener('change', loadImage);
 form.addEventListener('submit', sendImage);
-
